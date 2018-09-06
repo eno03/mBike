@@ -1,0 +1,81 @@
+<div class="container-fluid offers-banner">
+  <img class="img-fluid" src="http://www.zweiradcenter-weiss.de/media/Fahrrad-2000x500.jpg" alt="Bike">
+  <div class="centered text-center">
+    <h1 class="display-4">WELCOME</h1>
+    <p class="lead">Quick and easy online bike rental platform!</p>
+    <div class="offer-dropdown">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-light" id="offer-dropdown" ngbDropdownToggle>Select bike type</button>
+        <div ngbDropdownMenu aria-labelledby="offer-dropdown" class="drop-list">
+          <div class="input-group-text">
+            <button (click)="loadBikes()" class="dropdown-item small">All types</button>
+          </div>
+          <div class="input-group-text">
+            <button (click)="getCityBikes()" class="dropdown-item small">City bike</button>
+          </div>
+          <div class="input-group-text">
+            <button (click)="getMountainBikes()" class="dropdown-item small">Mountain bike</button>
+          </div>
+          <div class="input-group-text">
+            <button (click)="getRoadBikes()" class="dropdown-item small">Road bike</button>
+          </div>
+          <div class="input-group-text">
+            <button (click)="getEbikes()" class="dropdown-item small">  Ebike</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container offer">
+  <div class="row text-center">
+    <div class="col-4 bike" *ngFor=" let bike of selectedBicycles">
+      <img class="img-thumbnail" src="{{bike.url}}" alt="Nova Varos">
+      <br>
+      <h4 *ngIf="bike.brand_id == 1">
+        Giant {{bike.model}}
+      </h4>
+      <h4 *ngIf="bike.brand_id == 2">
+        Trek {{bike.model}}
+      </h4>
+      <h4 *ngIf="bike.brand_id == 3">
+        Scott {{bike.model}}
+      </h4>
+      <h4 *ngIf="bike.brand_id == 4">
+        Benelli {{bike.model}}
+      </h4>
+      <h5 *ngIf="bike.type_id == 1">
+        <span>(</span> City bike
+        <span>)</span>
+      </h5>
+      <h5 *ngIf="bike.type_id == 2">
+        <span>(</span> Mountain bike
+        <span>)</span>
+      </h5>
+      <h5 *ngIf="bike.type_id == 3">
+        <span>(</span> Road bike
+        <span>)</span>
+      </h5>
+      <h5 *ngIf="bike.type_id == 4">
+        <span>(</span> Ebike
+        <span>)</span>
+      </h5>
+      <textarea class="form-control" disabled>{{bike.description}}</textarea>
+      <hr>
+      <div class="row booking">
+        <div class="col-6 text-left">
+          <p class="text-justify ">
+            <span>
+              <fa name="usd"></fa>
+            </span> {{bike.price}} Euro pd
+          </p>
+        </div>
+        <div class="col-6 text-right ">
+          <button *ngIf="isAuth" [routerLink]="['/bike-booking']" (click)="sentId(bike.id)" class="btn btn-outline-danger">Book now</button>
+          <button *ngIf="!isAuth" [routerLink]="['/login']" class="btn btn-outline-danger">Book now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

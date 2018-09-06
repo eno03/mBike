@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>Active rent</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui libero voluptates dolor deserunt rem enim sapiente? Inventore
+      beatae aperiam eveniet, quae cum velit. Obcaecati, dignissimos unde minima praesentium eius doloremque.</p>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Address</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <ng-container *ngIf="active != 0;else empty">
+          <tr *ngFor="let rent of allRentals">
+            <ng-container *ngIf="rent.email == userEmail && rent.delivered == 1">
+              <td>{{rent.name}}</td>
+              <td>{{rent.model}}</td>
+              <td>{{rent.firstname}}</td>
+              <td>{{rent.lastname}}</td>
+              <td>{{rent.address}}</td>
+              <td>{{rent.email}}</td>
+              <td>{{rent.start}}</td>
+              <td>{{rent.end}}</td>
+              <td>{{rent.quantity}}</td>
+              <td>
+                <fa name="usd"></fa> {{rent.price}}</td>
+            </ng-container>
+          </tr>
+        </ng-container>
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #empty>
+  <h3> No active rent!</h3>
+</ng-template>

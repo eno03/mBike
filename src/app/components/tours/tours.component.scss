@@ -1,0 +1,48 @@
+.tours-banner {
+  color: white;
+  position: relative;
+  img {
+    width: 100%;
+    opacity: 0.4;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.tours {
+  padding: 2rem;
+  span {
+    color: #E54C3C;
+  }
+  .tour {
+    margin-bottom: 3rem;
+  }
+}
+
+// .tours {
+//   hr {
+//     color: #E54C3C;
+//     width: 60%;
+//   }
+//   .tours-item {
+//     padding: 1rem;
+//     opacity: 0.9;
+//   }
+//   .tours-item:hover {
+//     opacity: 1;
+//   }
+//   span {
+//     color: #E54C3C;
+//   }
+// }
+
+.title {
+  padding: 3rem;
+}

@@ -1,0 +1,58 @@
+.offers-banner {
+  color: white;
+  position: relative;
+  z-index: 9999;
+  img {
+    width: 100%;
+    opacity: 0.4;
+  }
+  .drop-list {
+    .input-group-text {
+      button:hover {
+        background: #E54C3C;
+        color: #bfbfbf;
+      }
+    }
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.offer {
+  padding: 2rem;
+  span {
+    color: #E54C3C;
+  }
+  .bike {
+    color: #e6e6e6;
+    margin-bottom: 3rem;
+    textarea {
+      background: transparent;
+      color: #bfbfbf;
+      resize: none;
+      border: 0 none;
+      width: 100%;
+      outline: none;
+      height: 200px;
+      overflow: hidden
+    }
+    .booking {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    hr {
+      background: #E54C3C;
+      width: 80%;
+      opacity: 0.3;
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@import 'scss/_variables.scss';
+@import 'scss/_mixins.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  background: #262626;
+  color:$text-info;
+}
+
+// Header
+header {
+  position: relative;
+  z-index: 10000;
+  .navbar {
+    height: 65px;
+    .container {
+      .navbar-brand {
+        font-weight: bold;
+        color: #cccccc;
+      }
+      .navbar-brand:hover {
+        color: $details-color !important;
+      }
+      ul {
+        .active a {
+          color: $details-color !important;
+        }
+        li {
+          a {
+            text-align: center;
+          }
+          a:after {
+            content: '';
+            display: block;
+            height: 1.5px;
+            background: $details-color;
+            transform: scaleX(0);
+            transition: transform .3s;
+          }
+          a:hover:after {
+            transform: scaleX(1);
+            transition: transform .3s;
+          }
+          a:hover {
+            color: $details-color !important;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  margin-bottom: 14rem;
+}
+
+// Footer
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  span {
+    color: #d9d9d9;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .span2 {
+    color: $details-color;
+  }
+  p {
+    color: $text-info;
+  }
+  hr {
+    background: $details-color;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      color: #bfbfbf;
+      margin: 10px 10px 10px 0px;
+      a {
+        color: $text-info;
+        text-align: center;
+      }
+      a:hover {
+        color: $details-color !important;
+        cursor: pointer;
+      }
+    }
+  }
+  .icons {
+    margin: 0 auto;
+    display: table;
+    .fa {
+      font-size: 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: $text-info;
+    }
+    .fa:hover {
+      font-size: 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: $details-color !important;
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<div class="container-fluid tours-banner">
+  <img class="img-fluid" src="https://haleakalacrater.com/wp-content/uploads/2018/03/visiting-haleakala.jpg" alt="Bike">
+  <div class="centered text-center">
+    <h1 class="display-4">Book your bike tour</h1>
+    <p class="lead">With this system, you can are able to book on to all our scheduled group bike tours throughout the year, if you prefer
+      to book a private tour, then please send us a request over the email.</p>
+  </div>
+</div>
+<div class="containe-fluid">
+  <div class="container text-center title">
+    <h1 class="display-4">DAILY TOURS</h1>
+    <p class="lead">Starts every day. Price starting from 17 Euro.</p>
+    <hr>
+  </div>
+</div>
+
+
+<div class="container tours">
+  <div class="row text-center">
+    <ng-container *ngFor=" let tour of tours">
+      <ng-container *ngIf="tour.status_id == 0">
+        <div class="col-4 tour">
+          <h4>
+            {{tour.title}}
+          </h4>
+          <img class="img-thumbnail" src="{{tour.url}}" alt="Nova Varos">
+          <p class="card-body text-justify">{{tour.description}}
+          </p>
+          <p class="text-justify ">
+            <span>
+              <fa name="check"></fa>
+            </span> {{tour.start}}
+            <br>
+            <span>
+              <fa name="clock-o"></fa>
+            </span> {{tour.time}}
+            <br>
+            <span>
+              <fa name="usd"></fa>
+            </span> {{tour.price}} Euro pp
+          </p>
+          <button *ngIf="isAuth" [routerLink]="['/tour-booking']" (click)="sentId(tour.id)" class="btn btn-outline-danger">Book now</button>
+          <button *ngIf="!isAuth" [routerLink]="['/login']" class="btn btn-outline-danger">Book now</button>
+
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+
+<ng-template #grouptours></ng-template>
+<div class="containe-fluid">
+  <div class="container text-center title">
+    <h1 class="display-4">GROUP TOURS</h1>
+    <p class="lead">Organized bike tours. Price starting from 40 Euro.</p>
+    <hr>
+  </div>
+</div>
+
+<div class="container tours">
+  <div class="row text-center">
+    <ng-container *ngFor=" let tour of tours">
+      <ng-container *ngIf="tour.status_id == 1">
+        <div class="col-4 tour">
+          <h4>
+            {{tour.title}}
+          </h4>
+          <img class="img-thumbnail" src="{{tour.url}}" alt="Nova Varos">
+          <p class="card-body text-justify">{{tour.description}}
+          </p>
+          <p class="text-justify ">
+            <span>
+              <fa name="check"></fa>
+            </span> {{tour.start}}
+            <br>
+            <span>
+              <fa name="clock-o"></fa>
+            </span> {{tour.time}}
+            <br>
+            <span>
+              <fa name="usd"></fa>
+            </span> {{tour.price}} Euro pp
+          </p>
+          <button *ngIf="isAuth" [routerLink]="['/tour-booking']" (click)="sentId(tour.id)" class="btn btn-outline-danger">Book now</button>
+          <button *ngIf="!isAuth" [routerLink]="['/login']" class="btn btn-outline-danger">Book now</button>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

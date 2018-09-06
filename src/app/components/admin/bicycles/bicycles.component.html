@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>Bicycles</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui libero voluptates dolor deserunt rem enim sapiente? Inventore
+      beatae aperiam eveniet, quae cum velit. Obcaecati, dignissimos unde minima praesentium eius doloremque.</p>
+  </div>
+  <form [formGroup]="addBicycleForm" (ngSubmit)="addBike(addBicycleForm.value)">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="brand_id">Brand:</label>
+        <select id="brand_id" type="text" class="form-control" formControlName='brand_id'>
+          <option value="1">Giant</option>
+          <option value="2">Trek</option>
+          <option value="3">Scott</option>
+          <option value="4">Benelli</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="model">Model:</label>
+        <input type="text" class="form-control" id="model" formControlName='model'>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="type_id">Type:</label>
+        <select id="type_id" type="text" class="form-control" formControlName='type_id'>
+          <option value="1">City bike</option>
+          <option value="2">Mountain bike</option>
+          <option value="3">Road bike</option>
+          <option value="4">Ebike</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="quantity">Quantity:</label>
+        <input type="number" class="form-control" id="quantity" formControlName='quantity'>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" formControlName='price'>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" formControlName='description'></textarea>
+    </div>
+    <div class="form-group">
+      <label for="url">Url</label>
+      <input type="text" class="form-control" id="url" formControlName='url'>
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-success">Add new bicycle</button>
+    </div>
+  </form>
+  <hr>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Brand</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+          <th scope="col">Url</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th class="text-center" scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bike of bicycles">
+          <td *ngIf="bike.brand_id == 1">Giant</td>
+          <td *ngIf="bike.brand_id == 2">Trek</td>
+          <td *ngIf="bike.brand_id == 3">Scott</td>
+          <td *ngIf="bike.brand_id == 4">Benelli</td>
+          <td *ngIf="bike.type_id == 1">City bike</td>
+          <td *ngIf="bike.type_id == 2">Mountain bike</td>
+          <td *ngIf="bike.type_id == 3">Road bike</td>
+          <td *ngIf="bike.type_id == 4">Ebike</td>
+          <td>{{bike.description}}</td>
+          <td>{{bike.url}}</td>
+          <td>{{bike.quantity}}</td>
+          <td>{{bike.price}}</td>
+          <td class="text-center">
+            <button class="btn btn-danger btn-block" (click)="remove(bike.id)">
+              <fa name="trash"></fa>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="container offer">
+  <ng-container *ngFor=" let tour of tours">
+    <ng-container *ngIf="tour.id == selected">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center bike ">
+          <img class="img-thumbnail" src="{{tour.url}}" alt="Bike">
+          <h2>
+            {{tour.title}}
+          </h2>
+
+          <h3 *ngIf="tour.status_id == 0">
+            <span>(</span>Daily tour
+            <span>)</span>
+          </h3>
+          <h3 *ngIf="tour.status_id == 1">
+            <span>(</span>Group tour
+            <span>)</span>
+          </h3>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <p class="text-justify">{{tour.description}}
+      </p>
+      <div class="row">
+        <div class="col-3">
+          <span>
+            <fa name="check"></fa>
+          </span> {{tour.start}}
+        </div>
+        <div class="col-6">
+          <span>
+            <fa name="check"></fa>
+          </span> {{tour.time}}
+        </div>
+
+        <div class="col-3 text-right">
+          <h3>Price: {{tour.price}}
+            <span>
+              <fa name="usd"></fa>
+            </span>
+          </h3>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div class="container">
+  <form (ngSubmit)="bookTour()">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="firstname">First name:</label>
+        <input type="text" class="form-control" id="firstname" [(ngModel)]="firstname" name="firstname" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="lastname">Last name:</label>
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="lastname" name="lastname" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required disabled>
+      </div>
+      <ng-container *ngFor=" let tour of tours">
+        <ng-container *ngIf="tour.id == selected">
+          <ng-container *ngIf="tour.status_id == 0">
+            <div class="form-group col-md-3">
+              <label for="date">Date:</label>
+              <input type="date" class="form-control" min="" [(ngModel)]="date" name="date" id="date" required>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+    <hr style="background: #E54C3C;width: 80%;opacity: 0.7;">
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-success">Confirm</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,215 @@
+<!-- Header -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span>
+          <img src="../assets/logo/logo.png" />
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item" routerLink="/offer" routerLinkActive="active">
+            <a class="nav-link" routerLink="/offer">Offer</a>
+          </li>
+          <li class="nav-item" routerLink="/tours" routerLinkActive="active">
+            <a class="nav-link" routerLink="/tours">Tours</a>
+
+            <li class="nav-item" routerLink="/gallery" routerLinkActive="active">
+              <a class="nav-link" routerLink="/gallery">Gallery</a>
+            </li>
+            <li class="nav-item" routerLink="/about" routerLinkActive="active">
+              <a class="nav-link" routerLink="/about">About Us</a>
+            </li>
+            <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+              <a class="nav-link" routerLink="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item" *ngIf="!isAuth" routerLink="/login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/login']">Sign in</a>
+            </li>
+            <ng-container *ngIf="isAuth">
+              <ng-container *ngIf="user">
+                <li class="nav-item" *ngIf="user.role_id == 1">
+                  <div ngbDropdown class="nav-link">
+                    <a id="dropdownAdmin" ngbDropdownToggle>Admin Panel
+                      <fa name="angle-double-down"></fa>
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownAdmin">
+                      <button [routerLink]="['/bike-rentals']" class="dropdown-item">Bike rentals</button>
+                      <button [routerLink]="['/tour-bookings']" class="dropdown-item">Tour bookings</button>
+                      <button [routerLink]="['/users-edit']" class="dropdown-item">Users</button>
+                      <button [routerLink]="['/bicycles-edit']" class="dropdown-item">Bicycles</button>
+                      <button [routerLink]="['/tours-edit']" class="dropdown-item">Tours</button>
+                      <hr>
+                      <button [routerLink]="['/']" class="dropdown-item" (click)="onLogout()">Logout</button>
+                    </div>
+                  </div>
+                </li>
+              </ng-container>
+              <ng-container *ngIf="user">
+                <li class="nav-item" *ngIf="user.role_id == 0">
+                  <div ngbDropdown class="nav-link">
+                    <a id="dropdownUser" ngbDropdownToggle>My Account
+                      <fa name="angle-double-down"></fa>
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownUser">
+                      <button [routerLink]="['/user-reservations']" class="dropdown-item">Bike rents</button>
+                      <button [routerLink]="['/user-bookings']" class="dropdown-item">Tour bookings</button>
+                      <button [routerLink]="['/']" class="dropdown-item">Setting</button>
+                      <hr>
+                      <button [routerLink]="['/']" class="dropdown-item" (click)="onLogout()">Logout</button>
+                    </div>
+                  </div>
+                </li>
+              </ng-container>
+            </ng-container>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Body -->
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="container-fluid padding bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <a>
+          <img src="../assets/logo/logo-f.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <span>
+          MENU
+        </span>
+        <hr>
+        <ul>
+          <li routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+            <a routerLink="/">Home</a>
+          </li>
+          <li routerLink="/offer" routerLinkActive="active">
+            <a routerLink="/offer">Offer</a>
+          </li>
+          <li routerLink="/tours" routerLinkActive="active">
+            <a routerLink="/tours">Tours</a>
+          </li>
+          <li routerLink="/gallery" routerLinkActive="active">
+            <a routerLink="/gallery">Gallery</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <span>ACCOUNT</span>
+        <hr>
+        <ul class="column-footer">
+          <ng-container *ngIf="isAuth">
+            <ng-container *ngIf="user">
+              <ng-container *ngIf="user.role_id == 1">
+                <li>
+                  <a [routerLink]="['/users-edit']">
+                    Users</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/bicycles-edit']">
+                    Bicycles</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/tours-edit']">
+                    Tours</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/']" (click)="onLogout()">
+                    <span style="color: #E54C3C">Logout</span>
+                  </a>
+                </li>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="user">
+              <ng-container class="nav-item" *ngIf="user.role_id == 0">
+                <li>
+                  <a [routerLink]="['/user-reservations']">Bike rents</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/user-bookings']">Tour bookings</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/']">Setting</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/']" (click)="onLogout()">
+                    <span style="color: #E54C3C">Log Out</span>
+                  </a>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <li *ngIf="!isAuth" routerLink="/login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+            <a [routerLink]="['/login']">Sign in</a>
+            <br>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <span>BUSINESS</span>
+        <hr>
+        <ul>
+          <li>Svetog Save 55</li>
+          <li>31320, Nova Varos, Serbia</li>
+          <li routerLink="/about" routerLinkActive="active">
+            <a routerLink="/about">About Us</a>
+          </li>
+          <li routerLink="/contact" routerLinkActive="active">
+            <a routerLink="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr id="line">
+    <div class="row text-center" style="margin-top: -5px">
+      <div class="col-4">
+        <p>
+          <span class="span2">Copyright &copy; 2018</span> - All Rights Reserved</p>
+      </div>
+      <div class="col-4">
+        <div class="icons">
+          <div class="row">
+            <a href="https://www.facebook.com">
+              <fa name="facebook"></fa>
+            </a>
+            <a href="https://www.instagram.com/?hl=en">
+              <fa name="instagram"></fa>
+
+            </a>
+            <a href="https://twitter.com/?lang=en">
+              <fa name="twitter"></fa>
+            </a>
+            <a href="https://plus.google.com/discover">
+              <fa name="google-plus-square"></fa>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <p>Designed by
+          <span class="span2"> |</span> Nikola Obućina</p>
+      </div>
+    </div>
+  </div>
+</footer>

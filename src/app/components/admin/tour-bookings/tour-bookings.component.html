@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>All tour reservations</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui libero voluptates dolor deserunt rem enim sapiente? Inventore
+      beatae aperiam eveniet, quae cum velit. Obcaecati, dignissimos unde minima praesentium eius doloremque.</p>
+  </div>
+  <form (ngSubmit)="addTour()">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="tours">Select tour:</label>
+        <select class="form-control" name="tour_id" (change)="changeTour($event.target)">
+          <option>Tours</option>
+          <hr>
+          <option *ngFor="let tour of tours" [value]="tour.id">
+            {{tour.title}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="tours">Select user:</label>
+        <select class="form-control" name="user_id" (change)="changeUser($event.target)">
+          <option>Users</option>
+          <hr>
+          <option *ngFor="let user of users" [value]="user.id">
+            {{user.email}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="firstname">First name:</label>
+        <input type="text" class="form-control" [(ngModel)]="firstname" name="first" id="first" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="lastname">Last name:</label>
+        <input type="text" class="form-control" [(ngModel)]="lastname" name="last" id="last" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" min="" [(ngModel)]="star" name="stardate" id="startdate" required>
+      </div>
+    </div>
+
+    <hr style="background: #E54C3C;width: 80%;opacity: 0.7;">
+
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-success">Confirm</button>
+    </div>
+  </form>
+  <hr>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Price</th>
+          <th class="text-center" scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tour of allBookings">
+          <td>{{tour.title}}</td>
+          <td>{{tour.email}}</td>
+          <td>{{tour.firstname}}</td>
+          <td>{{tour.lastname}}</td>
+          <td>{{tour.date}}</td>
+          <td>
+            <fa name="usd"></fa> {{tour.price}}</td>
+          <td class="text-center">
+            <button class="btn btn-danger btn-block" (click)="remove(tour.title,tour.email,tour.date)">
+              <fa name="trash"></fa>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

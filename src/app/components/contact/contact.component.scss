@@ -1,0 +1,23 @@
+.map {
+  agm-map {
+    height: 400px;
+  }
+}
+.jumbotron {
+  margin-top: 1rem;
+  color:#cccccc ;
+  hr{
+    background: #cccccc;
+    opacity: 0.2;
+  }
+}
+
+.info {
+  color: #cccccc;
+  address {
+    a {
+      text-decoration: none;
+      color: #E54C3C;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.offers {
+  padding: 3rem;
+  hr {
+    background: #E54C3C;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.rent-a-bike {
+  color: white;
+  position: relative;
+  img {
+    width: 100%;
+    opacity: 0.4;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  p {
+    font-family: "Minion Pro";
+    font-style: italic;
+    font-size: 25px;
+    span {
+      color: #E54C3C;
+    }
+  }
+  hr {
+    width: 60%;
+    background: #E54C3C;
+  }
+}
+
+.tours {
+  padding: 3rem;
+  hr{
+      color: #E54C3C;
+      width: 60%;
+  }
+  .tours-item {
+    padding: 1rem;
+    opacity: 0.9;
+  }
+  .tours-item:hover {
+    opacity: 1;
+  }
+  span {
+    color: #E54C3C;
+  }
+}

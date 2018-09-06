@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>Tours</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui libero voluptates dolor deserunt rem enim sapiente? Inventore
+      beatae aperiam eveniet, quae cum velit. Obcaecati, dignissimos unde minima praesentium eius doloremque.</p>
+  </div>
+  <form [formGroup]="addTourForm" (ngSubmit)="addTour(addTourForm.value)">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" formControlName='title'>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="start">Start:</label>
+        <input type="text" class="form-control" id="start" formControlName='start'>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="time">Time:</label>
+        <input type="text" class="form-control" id="time" formControlName='time'>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" formControlName='price'>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-12">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" formControlName='description'></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="url">Url:</label>
+        <input type="text" class="form-control" id="url" formControlName='url'>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="status_id">Type:</label>
+        <select id="status_id" type="text" class="form-control" formControlName='status_id'>
+          <option value="0">Daily</option>
+          <option value="1">Group</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-success">Add new tour</button>
+    </div>
+  </form>
+  <hr>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Url</th>
+          <th scope="col">Start</th>
+          <th scope="col">Time</th>
+          <th scope="col">Price</th>
+          <th class="text-center" scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tour of tours">
+          <td>{{tour.title}}</td>
+          <td>{{tour.description}}</td>
+          <td>{{tour.url}}</td>
+          <td>{{tour.start}}</td>
+          <td>{{tour.time}}</td>
+          <td>{{tour.price}}</td>
+          <td class="text-center">
+            <button class="btn btn-danger btn-block" (click)="remove(tour.id)">
+              <fa name="trash"></fa>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

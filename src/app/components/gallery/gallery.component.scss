@@ -1,0 +1,190 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  background-color: #f2f2f2;
+}
+
+.wrapper:after {
+  padding-top: 42.85714285714287%;
+  display: block;
+  content: '';
+}
+
+.wrapper .column {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14.2857142857142857%;
+  float: left;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.wrapper .column .inner {
+  width: 100%;
+  position: relative;
+}
+
+.wrapper .column .inner:after {
+  padding-top: 100%;
+  /* ratio 1:1 */
+  display: block;
+  content: '';
+}
+
+.wrapper .column .inner:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.wrapper .column .inner:hover:before {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.wrapper .column:nth-child(1) {
+  width: 28.5714285714285714%;
+}
+
+.wrapper .column:nth-child(2) {
+  left: 28.5714285714285714%;
+}
+
+.wrapper .column:nth-child(3) {
+  left: 28.5714285714285714%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wrapper .column:nth-child(4) {
+  width: 28.5714285714285714%;
+  left: 42.85714285714286%;
+  top: 0;
+}
+
+.wrapper .column:nth-child(4) .inner:after {
+  padding-top: 48.7%;
+}
+
+.wrapper .column:nth-child(5) {
+  left: 71.42857142857143%;
+  top: 0;
+}
+
+.wrapper .column:nth-child(6) {
+  left: auto;
+  right: 0;
+  top: 0;
+}
+
+.wrapper .column:nth-child(7) {
+  left: 71.42857142857143%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wrapper .column:nth-child(8) {
+  left: auto;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wrapper .column:nth-child(9) {
+  width: 28.5714285714285714%;
+  top: auto;
+  left: 0;
+  bottom: 0;
+}
+
+.wrapper .column:nth-child(9) .inner:after {
+  padding-top: 48.7%;
+}
+
+.wrapper .column:nth-child(10) {
+  left: 28.5714285714285714%;
+  top: auto;
+  bottom: 0;
+}
+
+.wrapper .column:nth-child(11) {
+  left: 42.85714285714286%;
+  top: auto;
+  bottom: 0;
+  width: 28.5714285714285714%;
+}
+
+.wrapper .column:nth-child(12) {
+  left: auto;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  width: 28.5714285714285714%;
+}
+
+.wrapper .column:nth-child(12) .inner:after {
+  padding-top: 48.7%;
+}
+
+.wrapper .column .inner {
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper .column:nth-child(1) .inner {
+  background-image: url('https://shortlist.imgix.net/app/uploads/2017/09/28153344/10-year-journey-chris-froome-on-dropping-out-of-university-to-conquering-the-cycling-world-2.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress');
+}
+
+.wrapper .column:nth-child(2) .inner {
+  background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/11/56/5e/d0/rent-a-bike-bisiklet.jpg');
+}
+
+.wrapper .column:nth-child(3) .inner {
+  background-image: url('https://bariloche.org/english/wp-content/uploads/2015/08/bike4-700x400.jpg');
+}
+
+.wrapper .column:nth-child(4) .inner {
+  background-image: url('https://www.brycewildlifeadventure.com/wp-content/uploads/2017/04/advt4.jpg');
+}
+
+.wrapper .column:nth-child(5) .inner {
+  background-image: url('https://www.portugalbike.com/wp-content/uploads/2017/02/portugal-bike-tours-the-quiet-villages-on-the-mountains-4aopt-800x600.jpg?x88155');
+}
+
+.wrapper .column:nth-child(6) .inner {
+  background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/1/best-mountain-bikes-main-1519924321.jpg');
+}
+
+.wrapper .column:nth-child(7) .inner {
+  background-image: url('https://cdnmos-bikeradar.global.ssl.fastly.net/images/bikes-and-gear/bikes/mountain-bikes/1450351584481-1fq461iwo7dwz-630-80.jpg');
+}
+
+.wrapper .column:nth-child(8) .inner {
+  background-image: url('https://static1.squarespace.com/static/5a7b4b7bf9a61ea7f3bccd27/t/5ac9503f0e2e72f4e58aa852/1523279763681/DSC03076-sm.jpg');
+}
+
+.wrapper .column:nth-child(9) .inner {
+  background-image: url('http://www.visitportoandnorth.travel/var/porto_norte/storage/images/atp-associacao-de-turismo-do-porto/members/fold-n-visit-rent-a-bike-city-tours-cycling-holidays-lda/924900-1-eng-US/Fold-N-Visit-Rent-a-bike-City-Tours-Cycling-Holidays-Lda.jpg');
+}
+
+.wrapper .column:nth-child(10) .inner {
+  background-image: url('https://argentina-travel-blog.sayhueque.com/wp-content/uploads/2015/04/Iguazu-Bike-Tour.jpg');
+}
+
+.wrapper .column:nth-child(11) .inner {
+  background-image: url('https://www.bluemountain.ca/-/media/blue-mountain/image-slider-2400x1350/attractions-and-activities/mountain-biking/bike_rentals_2400x1350_sz.ashx?h=1350&w=2400&hash=D7B2E80FBE324A6FE44E0CC012952ED508E9AAA3');
+}
+
+.wrapper .column:nth-child(12) .inner {
+  background-image: url('https://www.icebike.org/wp-content/uploads/2015/08/bike-rental-shop-14716686.jpg');
+}

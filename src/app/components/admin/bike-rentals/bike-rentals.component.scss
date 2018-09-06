@@ -1,0 +1,17 @@
+.jumbotron {
+  background-color: transparent !important;
+  color: #d9d9d9;
+  hr {
+    background: #d9d9d9;
+  }
+}
+
+textarea {
+  background: transparent;
+  resize: none;
+  border: 0 none;
+  width: 100%;
+  outline: none;
+  height: 38px;
+  overflow: hidden
+}
